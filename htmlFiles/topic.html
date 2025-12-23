@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALHOTRA SERVICE PVT. LTD - Topics PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header img {
+            width: 100px;
+            height: auto;
+        }
+
+        h1 {
+            color: #1a3d7c;
+            margin: 5px 0;
+            
+        }
+
+        h2 {
+            color: #0b2b5f;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #1a3d7c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #0b2b5f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <!-- Replace with your logo -->
+        <img src="/assert/logo.jpeg" alt="GALHOTRA SERVICE PVT. LTD Logo">
+        <h1>GALHOTRA SERVICE PVT. LTD</h1>
+        <p>Professional Services & Career Opportunities</p>
+    </div>
+
+    <button onclick="generatePDF()">Generate PDF</button>
+
+    <div id="content">
+        <h2>Ac Mechanic</h2>
+        <p>Providing skilled AC mechanics for installation, repair, and maintenance services.</p>
+
+        <h2>Accountant</h2>
+        <p>Offering qualified accountants for financial management, bookkeeping, and audits.</p>
+
+        <h2>Address Verification</h2>
+        <p>Professional staff for verifying addresses and providing accurate data for clients.</p>
+
+        <h2>Admin</h2>
+        <p>Trained administrative personnel to manage office operations efficiently.</p>
+
+        <h2>Airport Job</h2>
+        <p>Providing trained professionals for airport operations, ground services, and customer assistance.</p>
+
+        <h2>Architectural Designers</h2>
+        <p>Skilled designers for architectural planning, CAD drawings, and project execution.</p>
+
+        <h2>Automobile Mechanic</h2>
+        <p>Experienced mechanics for car, bike, and commercial vehicle repair and maintenance.</p>
+
+        <h2>Bank Staff</h2>
+        <p>Qualified personnel for banks including clerks, tellers, and customer service staff.</p>
+
+        <h2>Beautician</h2>
+        <p>Professional beauticians for salons, spas, and personal care services.</p>
+
+        <h2>Billing Cashier</h2>
+        <p>Efficient billing cashiers for retail, supermarkets, and service counters.</p>
+
+        <h2>BPO</h2>
+        <p>Trained BPO staff for customer service, support, and telecalling operations.</p>
+
+        <h2>Branch Manager</h2>
+        <p>Experienced managers to handle branch operations, staff, and customer relations.</p>
+
+        <h2>Business Development</h2>
+        <p>Skilled professionals for business growth, client acquisition, and market expansion.</p>
+
+        <h2>Caretaker</h2>
+        <p>Responsible caretakers for residential and commercial properties.</p>
+
+        <h2>CCTV Technician</h2>
+        <p>Professional CCTV installation and maintenance services.</p>
+
+        <h2>Chef or Cook</h2>
+        <p>Trained chefs and cooks for restaurants, hotels, and catering services.</p>
+
+        <h2>Collection Executive</h2>
+        <p>Staff for collection management, follow-ups, and debt recovery.</p>
+
+        <h2>Company Secretary</h2>
+        <p>Qualified professionals for corporate compliance and legal documentation.</p>
+
+        <h2>Computer Faculty</h2>
+        <p>Experienced IT instructors for teaching computer applications and programming.</p>
+
+        <h2>Construction Work</h2>
+        <p>Skilled labor for civil, structural, and finishing construction projects.</p>
+
+        <h2>Content Writer</h2>
+        <p>Professional content writers for blogs, articles, and corporate documentation.</p>
+
+        <h2>Co-ordinator</h2>
+        <p>Efficient coordinators for managing projects, events, and administrative tasks.</p>
+
+        <h2>Counselor</h2>
+        <p>Trained counselors for education, career guidance, and personal support.</p>
+
+        <h2>Counter Staff</h2>
+        <p>Customer service staff for counters in banks, retail, and service centers.</p>
+
+        <h2>Customer Care</h2>
+        <p>Professional customer support executives for service-oriented businesses.</p>
+
+        <h2>Data Entry</h2>
+        <p>Efficient data entry operators for office, research, and admin work.</p>
+
+        <h2>Delivery Boy</h2>
+        <p>Trained personnel for timely delivery of goods and courier services.</p>
+
+        <h2>Delivery Coordinator</h2>
+        <p>Staff managing delivery schedules, logistics, and tracking operations.</p>
+
+        <h2>Dental</h2>
+        <p>Qualified dental professionals for clinics, hospitals, and personal care.</p>
+
+        <h2>Diesel Mechanic</h2>
+        <p>Skilled diesel mechanics for trucks, buses, and heavy vehicles.</p>
+
+        <h2>Digital Marketing</h2>
+        <p>Experts in SEO, social media, PPC, and online brand promotion.</p>
+
+        <h2>Driver</h2>
+        <p>Trained drivers for personal, corporate, and commercial transport.</p>
+
+        <h2>Electrical Supervisor</h2>
+        <p>Experienced supervisors for electrical installations and project management.</p>
+
+        <h2>Electrician</h2>
+        <p>Certified electricians for residential, commercial, and industrial work.</p>
+
+        <h2>Electronics Technicians</h2>
+        <p>Skilled technicians for electronic equipment repair and maintenance.</p>
+
+        <h2>Finance & Admin</h2>
+        <p>Professionals managing finance, accounts, and administrative functions.</p>
+
+        <h2>Fire & Safety</h2>
+        <p>Certified personnel for fire safety, prevention, and emergency management.</p>
+
+        <h2>FMCG</h2>
+        <p>Staff specialized for fast-moving consumer goods operations and sales.</p>
+
+        <h2>Front Office</h2>
+        <p>Efficient front office staff for reception, customer service, and administration.</p>
+
+        <h2>Graphic Designing</h2>
+        <p>Creative graphic designers for digital media, branding, and marketing.</p>
+
+        <h2>Ground Staff</h2>
+        <p>Trained staff for on-site support in events, logistics, and hospitality.</p>
+
+        <h2>Hardware Technician</h2>
+        <p>Skilled personnel for hardware installation, repair, and maintenance.</p>
+
+        <h2>Helper</h2>
+        <p>Support staff for various industries including construction, manufacturing, and services.</p>
+
+        <h2>Hospital Field</h2>
+        <p>Professionals for hospital support including nursing, administration, and operations.</p>
+
+        <h2>Housekeeping</h2>
+        <p>Trained staff for cleaning, maintenance, and facility management.</p>
+
+        <h2>HR Executive</h2>
+        <p>Human resource professionals for recruitment, training, and employee management.</p>
+
+        <h2>HR Manager</h2>
+        <p>Experienced HR managers for overseeing policies, payroll, and team management.</p>
+
+        <h2>IT Project Co-ordinator</h2>
+        <p>Professionals managing IT projects, teams, and client communications.</p>
+
+        <h2>Java Developer</h2>
+        <p>Skilled developers for software, web applications, and enterprise solutions.</p>
+
+        <h2>Lab Technician</h2>
+        <p>Qualified lab technicians for medical, research, and testing laboratories.</p>
+
+        <h2>Legal Advisor</h2>
+        <p>Certified legal professionals providing corporate and personal legal guidance.</p>
+
+
+        <h2>Loading/Unloading</h2>
+        <p>Efficient staff for warehouse, logistics, and material handling.</p>
+
+        <h2>Loan Section</h2>
+        <p>Trained personnel for processing, managing, and sanctioning loans.</p>
+
+        <h2>Logistics</h2>
+        <p>Professional staff for logistics, supply chain management, and operations.</p>
+
+        <h2>Machine Operator</h2>
+        <p>Skilled operators for machinery in manufacturing and production units.</p>
+
+        <h2>Manager</h2>
+        <p>Experienced managers for overseeing operations, teams, and strategic planning.</p>
+
+        <h2>Manufacturing Mechanic</h2>
+        <p>Trained mechanics for assembly lines, machinery, and maintenance in manufacturing.</p>
+
+        <h2>Market & Research Analyst</h2>
+        <p>Experts analyzing market trends, consumer behavior, and business strategies.</p>
+
+        <h2>Mechanic</h2>
+        <p>General mechanics for vehicles, machinery, and industrial equipment.</p>
+
+        <h2>Mechanical Engineer</h2>
+        <p>Professional engineers for design, maintenance, and project execution.</p>
+
+        <h2>Medical Representative</h2>
+        <p>Skilled professionals promoting pharmaceuticals and medical products.</p>
+
+        <h2>Micro Biologist</h2>
+        <p>Qualified microbiologists for research, labs, and industrial applications.</p>
+
+        <h2>Networking Technician</h2>
+        <p>Technicians for network installation, maintenance, and IT infrastructure.</p>
+
+        <h2>Nurse</h2>
+        <p>Trained nursing staff for hospitals, clinics, and home care.</p>
+
+        <h2>Office Assistant</h2>
+        <p>Efficient office assistants for administrative, clerical, and documentation work.</p>
+
+        <h2>Office Work</h2>
+        <p>General office personnel for administrative and support tasks.</p>
+
+        <h2>Operations</h2>
+        <p>Staff for managing operations, logistics, and process efficiency.</p>
+
+        <h2>Outbound Sales</h2>
+        <p>Professionals handling outbound sales, telecalling, and client acquisition.</p>
+
+        <h2>Part Time Job</h2>
+        <p>Opportunities for students and working professionals in various sectors.</p>
+
+        <h2>Principal</h2>
+        <p>Experienced educational leaders managing schools, colleges, or institutions.</p>
+
+        <h2>PRO</h2>
+        <p>Public Relations Officers for corporate communication and documentation.</p>
+
+        <h2>Product Promoter</h2>
+        <p>Skilled promoters for marketing, branding, and product awareness.</p>
+
+        <h2>Production & Engineering</h2>
+        <p>Staff for manufacturing, production lines, and engineering operations.</p>
+
+        <h2>Programmer</h2>
+        <p>Software developers for coding, web apps, and enterprise solutions.</p>
+
+        <h2>Project Engineer</h2>
+        <p>Engineers managing projects, teams, and technical deliverables.</p>
+
+        <h2>Purchase Officer</h2>
+        <p>Professionals managing procurement, suppliers, and inventory.</p>
+
+        <h2>Quality Controller</h2>
+        <p>Staff ensuring quality checks, standards, and compliance.</p>
+
+        <h2>Quantity Survey</h2>
+        <p>Surveyors managing costs, materials, and project documentation.</p>
+
+        <h2>Radio Jockey</h2>
+        <p>Professionals for radio broadcasting, announcements, and programs.</p>
+
+        <h2>Restaurant Captain</h2>
+        <p>Staff managing restaurant operations, customer service, and team coordination.</p>
+
+        <h2>Room Boys</h2>
+        <p>Support staff for hotels, guest houses, and hospitality services.</p>
+
+        <h2>Sales Coordinator</h2>
+        <p>Professionals coordinating sales teams, clients, and targets.</p>
+
+        <h2>Sales Manager</h2>
+        <p>Experienced managers driving sales strategies, targets, and teams.</p>
+
+        <h2>Search Engine Optimization (SEO)</h2>
+        <p>Experts optimizing websites for search engine visibility and ranking.</p>
+
+        <h2>Security Guard</h2>
+        <p>Trained personnel for physical security and surveillance.</p>
+
+        <h2>Security Supervisor</h2>
+        <p>Supervisors managing security teams and operations.</p>
+
+        <h2>Security System</h2>
+        <p>Professionals handling CCTV, alarms, and electronic security solutions.</p>
+
+        <h2>Senior Accountant</h2>
+        <p>Experienced accountants for financial management, reporting, and audits.</p>
+
+        <h2>Service Advisor</h2>
+        <p>Staff advising customers on service, repairs, and maintenance.</p>
+
+        <h2>Service Centre</h2>
+        <p>Professionals managing service centers, customer satisfaction, and operations.</p>
+
+        <h2>Service Supervisor</h2>
+        <p>Supervisors managing service teams, quality, and workflow.</p>
+
+        <h2>Showroom Sales</h2>
+        <p>Trained personnel for retail sales and customer assistance.</p>
+
+        <h2>Showroom Sales Manager</h2>
+        <p>Managers overseeing showroom operations, sales targets, and staff.</p>
+
+        <h2>Site Engineer</h2>
+        <p>Engineers supervising site operations, projects, and technical work.</p>
+
+        <h2>Site Supervisor</h2>
+        <p>Supervisors managing construction sites, workers, and deadlines.</p>
+
+        <h2>Social Media Marketing</h2>
+        <p>Experts managing social media campaigns, branding, and engagement.</p>
+
+        <h2>Software Developers</h2>
+        <p>Programmers developing software applications, web apps, and tools.</p>
+
+        <h2>Software Tester</h2>
+        <p>Professionals testing software for bugs, performance, and quality assurance.</p>
+
+        <h2>Solar Installation</h2>
+        <p>Technicians installing and maintaining solar energy systems.</p>
+
+        <h2>Spare Parts</h2>
+        <p>Staff managing spare parts, inventory, and supply chain.</p>
+
+        <h2>Steel Fabrication</h2>
+        <p>Professionals handling steel fabrication, welding, and construction.</p>
+
+        <h2>Store Keeper</h2>
+        <p>Staff managing inventory, stock, and warehousing.</p>
+
+        <h2>Supervisor</h2>
+        <p>Experienced supervisors overseeing operations, staff, and workflow.</p>
+
+        <h2>System Admin</h2>
+        <p>IT professionals managing servers, networks, and IT infrastructure.</p>
+
+        <h2>Teaching</h2>
+        <p>Qualified teachers for schools, colleges, and coaching institutes.</p>
+
+        <h2>Team Leader</h2>
+        <p>Leaders managing teams, projects, and operations efficiently.</p>
+
+        <h2>Technical Field</h2>
+        <p>Skilled personnel for field operations in technical industries.</p>
+
+        <h2>Technical Support</h2>
+        <p>Experts providing IT and technical support to clients and organizations.</p>
+
+        <h2>Telecalling</h2>
+        <p>Trained telecallers handling customer calls, sales, and support.</p>
+
+        <h2>Telemarketing</h2>
+        <p>Professionals conducting telemarketing campaigns and client outreach.</p>
+
+        <h2>Trainee</h2>
+        <p>Entry-level staff undergoing training for various roles.</p>
+
+        <h2>Trainer</h2>
+        <p>Professional trainers for skills, corporate training, and workshops.</p>
+
+        <h2>Travel Agency</h2>
+        <p>Staff managing travel bookings, tours, and client assistance.</p>
+
+        <h2>Waiter</h2>
+        <p>Trained staff for restaurants, cafes, and hospitality services.</p>
+
+        <h2>Warden</h2>
+        <p>Personnel managing hostels, residential facilities, and security.</p>
+
+        <h2>Website Developer</h2>
+        <p>Professional web developers for websites, apps, and digital solutions.</p>
+
+
+
+    </div>
+
+
+    <script>
+        async function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'pt', 'a4');
+            const content = document.getElementById("content");
+
+            let y = 40;
+            doc.setFontSize(20);
+            doc.setTextColor(26, 61, 124);
+            doc.text("GALHOTRA SERVICE PVT. LTD", 40, y);
+            y += 25;
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text("Professional Services & Career Opportunities", 40, y);
+            y += 30;
+
+            const sections = content.querySelectorAll("h2, p");
+            sections.forEach(section => {
+                if (section.tagName === "H2") {
+                    doc.setFontSize(16);
+                    doc.setTextColor(11, 43, 95);
+                    doc.text(section.innerText, 40, y);
+                    y += 20;
+                } else if (section.tagName === "P") {
+                    doc.setFontSize(12);
+                    doc.setTextColor(0, 0, 0);
+
+                    // Split text into multiple lines if too long
+                    const lines = doc.splitTextToSize(section.innerText, 500);
+                    lines.forEach(line => {
+                        doc.text(line, 40, y);
+                        y += 15;
+                        // Add new page if exceeds page height
+                        if (y > 800) {
+                            doc.addPage();
+                            y = 40;
+                        }
+                    });
+                    y += 10;
+                }
+            });
+
+            doc.save("GALHOTRA_SERVICE_TOPICS.pdf");
+        }
+    </script>
+
+</body>
+
+</html>

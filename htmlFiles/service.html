@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Galhotra Limited</title>
+    <script src="/main.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+<body class="bg-gradient-to-br from-[#FFF7ED] via-blue-500 to-blue-100 text-gray-900 [&_p]:text-gray-900">
+
+    <nav class="bg-blue-600 text-white">
+        <div class="container mx-auto px-6 flex items-center justify-between py-4">
+
+            <!-- Logo -->
+            <a href="/" class="flex items-center space-x-2">
+                <img src="/assert/logo.jpeg" alt="Company Logo" class="h-10 rounded-md">
+                <span class="font-bold text-lg">Galhotra</span>
+            </a>
+
+            <!-- Hamburger Button (Mobile) -->
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Menu Links -->
+            <div id="menu" class="hidden md:flex space-x-6 items-center">
+                <a href="/" class="hover:text-blue-200">Home</a>
+                <a href="/about.html" class="hover:text-blue-200">About</a>
+                <a href="/service.html" class="hover:text-blue-200">Service</a>
+                <a href="/careers.html" class="hover:text-blue-200">Career</a>
+                <a href="/contact.html" class="hover:text-blue-200">Contact</a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-700">
+            <a href="/index.html" class="block px-4 py-2 hover:bg-blue-500">Home</a>
+            <a href="/about.html" class="block px-4 py-2 hover:bg-blue-500">About</a>
+            <a href="/service.html" class="block px-4 py-2 hover:bg-blue-500">Service</a>
+            <a href="/careers.html" class="block px-4 py-2 hover:bg-blue-500">Careers</a>
+            <a href="/contact.html" class="block px-4 py-2 hover:bg-blue-500">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative text-center py-28 bg-gradient-to-r from-blue-900 to-blue-700 overflow-hidden">
+        <!-- Animated background circles -->
+        <div class="absolute top-0 left-0 w-72 h-72 bg-white opacity-10 rounded-full animate-pulse mix-blend-multiply">
+        </div>
+        <div
+            class="absolute bottom-10 right-10 w-96 h-96 bg-white opacity-5 rounded-full animate-pulse mix-blend-multiply">
+        </div>
+
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-white drop-shadow-lg">
+            Our Services
+        </h1>
+        <p class="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto mb-8">
+            Empowering businesses with <span class="font-semibold text-white">reliable manpower solutions</span>
+            and <span class="font-semibold text-white">workforce excellence</span>.
+        </p>
+        <a href="/topic.html"
+            class="mt-4 inline-flex items-center gap-2 bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl hover:bg-blue-200 transition-transform transform hover:-translate-y-1">
+            Explore Services
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </section>
+
+
+    <!-- Company Intro -->
+    <section class="container mx-auto px-6 py-16 text-center">
+        <h2 class="text-3xl font-bold mb-6">About Our Expertise</h2>
+        <p class="text-blue-200 max-w-3xl mx-auto">
+            At Galhotra Limited, we specialize in providing skilled manpower solutions across industries.
+            From recruitment and staffing to HR analytics and workforce management, we ensure businesses
+            have the right people at the right time. Our mission is to empower organizations with talent
+            that drives growth and innovation.
+        </p>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-blue-900">
+
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Recruitment"
+                class="w-16 h-16 mb-4 mx-auto">
+            <h3 class="text-xl font-bold mb-2">Recruitment</h3>
+            <p>Connecting businesses with top talent across industries, ensuring the right fit for every role.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Staffing"
+                class="w-16 h-16 mb-4 mx-auto">
+            <h3 class="text-xl font-bold mb-2">Staffing Solutions</h3>
+            <p>Flexible staffing options to meet short-term and long-term workforce requirements.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135716.png" alt="Workforce Management"
+                class="w-16 h-16 mb-4 mx-auto">
+            <h3 class="text-xl font-bold mb-2">Workforce Management</h3>
+            <p>Efficient workforce planning and management to optimize productivity and reduce costs.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135714.png" alt="HR Analytics"
+                class="w-16 h-16 mb-4 mx-auto">
+            <h3 class="text-xl font-bold mb-2">HR Analytics</h3>
+            <p>Data-driven insights to improve employee performance and organizational efficiency.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135717.png" alt="Training"
+                class="w-16 h-16 mb-4 mx-auto">
+            <h3 class="text-xl font-bold mb-2">Training & Development</h3>
+            <p>Upskilling employees with modern training programs tailored to industry needs.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135718.png" alt="Outsourcing"
+                class="w-16 h-16 mb-4 mx-auto">
+            <h3 class="text-xl font-bold mb-2">Outsourcing</h3>
+            <p>Reliable outsourcing solutions to reduce costs and focus on core business activities.</p>
+        </div>
+
+        <!-- ⭐ NEW SERVICE ADDED BELOW ⭐ -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Book Digitization"
+                class="w-16 h-16 mb-4 mx-auto">
+            <h3 class="text-xl font-bold mb-2">Book Digitization</h3>
+            <p>Converting physical books into high-quality PDF files with proper naming and organization.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Security Guard"
+                class="w-16 h-16 mb-4 mx-auto">
+            <h3 class="text-xl font-bold mb-2">Security Guard Service</h3>
+            <p>Providing trained and professional security guards to ensure safety and protection of premises.</p>
+        </div>
+
+
+    </section>
+
+
+    <!-- Industries We Serve -->
+    <section class="bg-gradient-to-r from-blue-700 to-blue-600 py-16 text-center">
+        <h2 class="text-3xl font-bold mb-6">Industries We Serve</h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+
+            <a href="/servicepage/it.html" target="_blank" rel="noopener noreferrer" class="block">
+                <div
+                    class="bg-white text-blue-900 p-6 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition cursor-pointer">
+                    💻 IT & Software
+                </div>
+            </a>
+            <a href="/servicepage/education.html" target="_blank" rel="noopener noreferrer" class="block">
+                <div class="bg-white text-blue-900 p-6 rounded-lg shadow-lg">🎓 Education</div>
+            </a>
+            <a href="/servicepage/Security.html" target="_blank" rel="noopener noreferrer" class="block">
+
+            <div class="bg-white text-blue-900 p-6 rounded-lg shadow-lg">🧑‍✈️ Security Guard</div>
+            </a>
+            <div class="bg-white text-blue-900 p-6 rounded-lg shadow-lg">📊 Finance</div>
+
+            <!-- ⭐ NEW INDUSTRIES ADDED ⭐ -->
+            <div class="bg-white text-blue-900 p-6 rounded-lg shadow-lg">📚 Publishing</div>
+            <div class="bg-white text-blue-900 p-6 rounded-lg shadow-lg">🏛️ Libraries & Archives</div>
+            <div class="bg-white text-blue-900 p-6 rounded-lg shadow-lg">📝 Research & Documentation</div>
+            <div class="bg-white text-blue-900 p-6 rounded-lg shadow-lg">🏢 Corporate Documentation</div>
+
+        </div>
+    </section>
+
+
+    <!-- Stats Section -->
+    <section class="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+        <div>
+            <h3 class="text-5xl font-bold text-blue-200">50+</h3>
+            <p>Employees</p>
+        </div>
+        <div>
+            <h3 class="text-5xl font-bold text-blue-200">200+</h3>
+            <p>Clients</p>
+        </div>
+        <div>
+            <h3 class="text-5xl font-bold text-blue-200">5500+</h3>
+            <p>Placements</p>
+        </div>
+        <div>
+            <h3 class="text-5xl font-bold text-blue-200">150+</h3>
+            <p>Industries Served</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="bg-gradient-to-r from-blue-900 to-blue-700 py-16 text-center">
+        <h2 class="text-3xl font-bold mb-6">What Our Clients Say</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+
+            <div class="bg-white text-blue-900 p-6 rounded-lg shadow-lg">
+                <p>"Galhotra Limited helped us scale our workforce quickly and efficiently. Highly recommended!"</p>
+                <h4 class="mt-4 font-bold">— TechCorp</h4>
+            </div>
+
+            <div class="bg-white text-blue-900 p-6 rounded-lg shadow-lg">
+                <p>"Their recruitment process is seamless and we always get the talent we need on time."</p>
+                <h4 class="mt-4 font-bold">— FinServe</h4>
+            </div>
+
+            <div class="bg-white text-blue-900 p-6 rounded-lg shadow-lg">
+                <p>"Excellent HR analytics support that improved our employee productivity."</p>
+                <h4 class="mt-4 font-bold">— EduWorld</h4>
+            </div>
+
+            <!-- ⭐ NEW TESTIMONIAL ⭐ -->
+            <div class="bg-white text-blue-900 p-6 rounded-lg shadow-lg">
+                <p>"Their book digitization service saved us hours of manual work. Very accurate and well-organized
+                    PDFs!"</p>
+                <h4 class="mt-4 font-bold">— LibraryWorks</h4>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Call to Action -->
+    <section class="text-center py-16">
+        <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Workforce?</h2>
+        <p class="text-blue-200 mb-6">Partner with Galhotra Limited for manpower solutions that drive success.</p>
+        <a href="#contact"
+            class="bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-blue-200 transition">Contact
+            Us</a>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="container mx-auto px-6 py-16">
+        <div class="bg-white text-blue-900 p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold mb-6 text-center">Request Our Services</h2>
+            <p class="text-blue-700 mb-6 text-center">
+                Fill out the form below and our team will reach out to you with tailored manpower solutions.
+            </p>
+            <form id="service-form" class="space-y-4">
+                <div>
+                    <label class="block font-semibold">Full Name</label>
+                    <input type="text" name="name" required class="w-full border rounded px-3 py-2">
+                </div>
+                <div>
+                    <label class="block font-semibold">Email</label>
+                    <input type="email" name="email" required class="w-full border rounded px-3 py-2">
+                </div>
+                <div>
+                    <label class="block font-semibold">Phone</label>
+                    <input type="tel" name="phone" required class="w-full border rounded px-3 py-2">
+                </div>
+                <div>
+                    <label class="block font-semibold">Service Interested In</label>
+                    <select name="service" required class="w-full border rounded px-3 py-2">
+                        <option value="">Select a service</option>
+                        <option value="Recruitment">Recruitment</option>
+                        <option value="Staffing">Staffing Solutions</option>
+                        <option value="Workforce Management">Workforce Management</option>
+                        <option value="HR Analytics">HR Analytics</option>
+                        <option value="Training">Training & Development</option>
+                        <option value="Outsourcing">Outsourcing</option>
+                        <option value="Outsourcing">Book Digitization</option>
+                        <option value="Outsourcing">Security Guard Service</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold">Message</label>
+                    <textarea name="message" rows="4" required class="w-full border rounded px-3 py-2"></textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-800 transition">
+                    Submit Request
+                </button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-12 relative">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+
+            <!-- Company Info -->
+            <div>
+                <a href="/" class="flex items-center space-x-2 mb-4">
+                    <img src="/assert/logo.jpeg" alt="Company Logo" class="h-10">
+                    <span class="font-bold text-lg">Galhotra Limited</span>
+                </a>
+                <p class="text-sm mb-1">
+                    B 25, 2nd Floor, Near Hotel Brij Residency, Hoshangabad Road, Vidya Nagar, Bhopal-462026, Madhya
+                    Pradesh
+                </p>
+                <p class="text-sm mb-1">
+                    <span class="font-semibold">Email:</span> <a href="mailto:info@galhotra.com"
+                        class="hover:text-blue-200">info@galhotra.com</a>
+                </p>
+                <p class="text-sm">
+                    <span class="font-semibold">Contact:</span> +91 8878339993
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="/index.html" class="hover:text-blue-200 transition">Home</a></li>
+                    <li><a href="/about.html" class="hover:text-blue-200 transition">About</a></li>
+                    <li><a href="/careers.html" class="hover:text-blue-200 transition">Careers</a></li>
+                    <li><a href="/service.html" class="hover:text-blue-200 transition">Service</a></li>
+                    <li><a href="/contact.html" class="hover:text-blue-200 transition">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Links -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                <div class="flex space-x-4">
+                    <a href="https://x.com/GalhotraGroup?t=t0_Ncqxw_ewrqwVtC1fs6Q&s=08" target="_blank"
+                        class="hover:text-blue-300 transition">
+                        <!-- Twitter Icon -->
+                        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 
+      4.48 0 0 0 22.43.36a9.09 
+      9.09 0 0 1-2.88 1.1A4.52 
+      4.52 0 0 0 16.11 0c-2.5 
+      0-4.51 2.24-3.93 4.67A12.94 
+      12.94 0 0 1 1.64.88a4.52 
+      4.52 0 0 0 1.4 6.04A4.41 
+      4.41 0 0 1 .96 6v.06a4.52 
+      4.52 0 0 0 3.63 4.43 4.52 
+      4.52 0 0 1-2.04.08 4.52 
+      4.52 0 0 0 4.22 3.14A9.05 
+      9.05 0 0 1 0 19.54 12.94 
+      12.94 0 0 0 7.29 22c8.83 
+      0 13.67-7.5 13.67-14 0-.21 
+      0-.42-.02-.63A9.94 9.94 
+      0 0 0 23 3z" />
+                        </svg>
+                    </a>
+
+                    <a href="https://www.instagram.com/galhotra_group?igsh=cW16cGkyYWx2M2Zu" target="_blank"
+                        class="hover:text-pink-400 transition">
+                        <!-- Instagram Icon -->
+                        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.054 1.968.24 2.428.403a4.918 4.918 0 0 1 1.77 1.01 4.918 4.918 0 0 1 1.01 1.77c.164.46.35 1.26.403 2.43.058 1.27.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.968-.403 2.428a4.918 4.918 0 0 1-1.01 1.77 4.918 4.918 0 0 1-1.77 1.01c-.46.164-1.26.35-2.43.403-1.27.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.968-.24-2.428-.403a4.918 4.918 0 0 1-1.77-1.01 4.918 4.918 0 0 1-1.01-1.77c-.164-.46-.35-1.26-.403-2.43C2.212 15.584 2.2 15.2 2.2 12s.012-3.584.07-4.85c.054-1.17.24-1.968.403-2.428a4.918 4.918 0 0 1 1.01-1.77 4.918 4.918 0 0 1 1.77-1.01c.46-.164 1.26-.35 2.43-.403C8.416 2.212 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.506.012-4.74.068-1.03.048-1.58.216-1.95.36a3.118 3.118 0 0 0-1.13.737 3.118 3.118 0 0 0-.737 1.13c-.144.37-.312.92-.36 1.95-.056 1.234-.068 1.6-.068 4.74s.012 3.506.068 4.74c.048 1.03.216 1.58.36 1.95.16.44.37.82.737 1.13.31.367.69.577 1.13.737.37.144.92.312 1.95.36 1.234.056 1.6.068 4.74.068s3.506-.012 4.74-.068c1.03-.048 1.58-.216 1.95-.36.44-.16.82-.37 1.13-.737.367-.31.577-.69.737-1.13.144-.37.312-.92.36-1.95.056-1.234.068-1.6.068-4.74s-.012-3.506-.068-4.74c-.048-1.03-.216-1.58-.36-1.95a3.118 3.118 0 0 0-.737-1.13 3.118 3.118 0 0 0-1.13-.737c-.37-.144-.92-.312-1.95-.36-1.234-.056-1.6-.068-4.74-.068zM12 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.6a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank" class="hover:text-blue-300 transition">
+                        <!-- LinkedIn Icon -->
+                        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S.02 4.88.02 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.02 8h5v16h-5V8zm7.5 0h4.78v2.19h.07c.66-1.25 2.27-2.56 4.67-2.56 4.99 0 5.91 3.28 5.91 7.55V24h-5v-6.56c0-1.57-.03-3.59-2.19-3.59-2.2 0-2.53 1.72-2.53 3.5V24h-5V8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="mt-12 border-t border-blue-500 pt-6 text-center text-sm">
+            © 2025 Galhotra Group Pvt. Ltd. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- WhatsApp Fixed Button -->
+    <a href="https://wa.me/918878339993" target="_blank"
+        class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.149-.198.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.173.198-.297.298-.495.099-.198.05-.372-.025-.521-.074-.149-.67-1.612-.918-2.21-.242-.579-.487-.5-.67-.51-.173-.007-.372-.009-.571-.009s-.521.074-.794.372c-.273.297-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.412.248-.694.248-1.29.173-1.412-.074-.123-.272-.198-.57-.347z" />
+        </svg>
+    </a>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
