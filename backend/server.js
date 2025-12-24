@@ -21,11 +21,46 @@ connectDB();
 const app = express();
 
 
+// app.use(cors({
+//   origin: ["http://127.0.0.1:3003", "http://localhost:3000"],
+//   methods: ["GET", "POST", "PATCH", "DELETE", "PUT"],
+//   allowedHeaders: ["Content-Type", "Authorization"]
+// }));
+
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://127.0.0.1:3003",
+
+  // 🔥 LIVE FRONTEND (Public website)
+  "https://galhotragroup.com",
+  "http://galhotragroup.com",
+
+  // 🔥 LIVE ADMIN PANEL
+  "https://galhotrservice.com",
+  "http://galhotrservice.com"
+];
+
 app.use(cors({
-  origin: ["http://127.0.0.1:3003", "http://localhost:3000"],
-  methods: ["GET", "POST", "PATCH", "DELETE", "PUT"],
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("CORS not allowed: " + origin));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PATCH", "DELETE", "PUT", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
+// ❌ REMOVE — NO need for .options wildcard
+// app.options("*", cors());
+// app.options("/*", cors());
+
+
+
 
 
 
