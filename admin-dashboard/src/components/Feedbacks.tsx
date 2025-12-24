@@ -13,7 +13,7 @@ export default function Feedbacks({ token }: FeedbacksProps) {
   const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
   const [f, setF] = useState("");
 
-  const API_BASE = "http://localhost:4000";
+  const API_BASE = "https://galhotrservice.com";
 
   // ✅ fetchFeedbacks wrapped in useCallback to fix ESLint warning
   const fetchFeedbacks = useCallback(async () => {

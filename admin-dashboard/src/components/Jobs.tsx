@@ -22,7 +22,7 @@ export default function Jobs({ token }: JobsProps) {
   const [description, setDescription] = useState("");
   const [posted, setPosted] = useState("");
 
-  const API_BASE = "http://localhost:4000";
+  const API_BASE = "https://galhotrservice.com";
 
   const fetchJobs = async () => {
     try {

@@ -17,7 +17,7 @@ export default function DailyContentAdmin({ token }: DailyContentAdminProps) {
   const [text, setText] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
 
-  const API_BASE = "http://localhost:4000/api/content";
+  const API_BASE = "https://galhotrservice.com/api/content";
 
   const fetchContents = async () => {
     const res = await fetch(`${API_BASE}/get`, {

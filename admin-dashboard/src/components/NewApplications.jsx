@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { FiTrash2, FiMail, FiPhone } from "react-icons/fi";
 
 export default function Applications({ token }) {
-  const API = "http://localhost:4000/api/application";
+  const API = "https://galhotrservice.com/api/application";
   const [applications, setApplications] = useState([]);
 
   // ✅ fetchApps wrapped in useCallback to fix ESLint warning

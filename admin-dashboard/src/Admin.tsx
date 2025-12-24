@@ -37,7 +37,7 @@ export default function App() {
     contents: 0,
   });
 
-  const API_BASE = "http://localhost:4000";
+  const API_BASE = "https://galhotrservice.com";
 
   useEffect(() => {
     const fetchStats = async () => {

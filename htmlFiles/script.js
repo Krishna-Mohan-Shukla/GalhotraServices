@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       try {
-        const res = await fetch("http://localhost:4000/api/contact/create", {
+        const res = await fetch("https://galhotrservice.com/api/contact/create", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData)
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const queryForm = document.getElementById("query-form");
   const queriesContainer = document.getElementById("queries-container");
 
-  const API_BASE = "http://localhost:4000/api/query";
+  const API_BASE = "https://galhotrservice.com/api/query";
 
   const fetchQueries = async () => {
     if (!queriesContainer) return;
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         feedback: feedbackForm.feedback.value,
       };
 
-      const res = await fetch("http://localhost:4000/api/feedback/post", {
+      const res = await fetch("https://galhotrservice.com/api/feedback/post", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       try {
-        const res = await fetch("http://localhost:4000/api/service/create", {
+        const res = await fetch("https://galhotrservice.com/api/service/create", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const formData = new FormData(careerForm);
 
       try {
-        const res = await fetch("http://localhost:4000/api/apply/post", {
+        const res = await fetch("https://galhotrservice.com/api/apply/post", {
           method: "POST",
           body: formData
         });
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
       form.append("jobRole", document.getElementById("department").value);
 
       try {
-        const res = await fetch("http://localhost:4000/api/application/apply", {
+        const res = await fetch("https://galhotrservice.com/api/application/apply", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(Object.fromEntries(form)),

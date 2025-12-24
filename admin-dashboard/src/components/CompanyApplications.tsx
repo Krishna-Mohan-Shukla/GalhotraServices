@@ -13,7 +13,7 @@ interface Application {
 
 export default function CompanyApplications() {
   const { token } = useParams<{ token: string }>();
-  const BASE_URL = "http://localhost:4000/api/company/status-update";
+  const BASE_URL = "https://galhotrservice.com/api/company/status-update";
 
   const [app, setApp] = useState<Application | null>(null);
   const [newStatus, setNewStatus] = useState("");
@@ -134,7 +134,7 @@ export default function CompanyApplications() {
         {/* Resume */}
         {app.resume && (
           <a
-            href={`http://localhost:4000/uploads/${app.resume}`}
+            href={`https://galhotrservice.com/uploads/${app.resume}`}
             target="_blank"
             rel="noopener noreferrer"
             className="block mt-4 text-blue-600 font-medium underline"

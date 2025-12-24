@@ -1,5 +1,5 @@
 // ---------------- BASIC CONFIG ----------------
-const API_BASE = "http://localhost:4000";
+const API_BASE = "https://galhotrservice.com";
 const vacancyList = document.getElementById("vacancy-list");
 
 let jobsData = [];

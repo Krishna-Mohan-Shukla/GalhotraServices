@@ -15,7 +15,7 @@ export default function Queries({ token }: QueriesProps) {
   const [queries, setQueries] = useState<Query[]>([]);
   const [q, setQ] = useState("");
 
-  const API_BASE = "http://localhost:4000";
+  const API_BASE = "https://galhotrservice.com";
 
   const fetchQueries = async () => {
     try {

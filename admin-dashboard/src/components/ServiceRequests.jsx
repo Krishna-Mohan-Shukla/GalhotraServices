@@ -6,7 +6,7 @@ export default function ServiceRequests({ token }) {
 
   const fetchRequests = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/service/get", {
+      const res = await fetch("https://galhotrservice.com/api/service/get", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -20,7 +20,7 @@ export default function ServiceRequests({ token }) {
     if (!window.confirm("Are you sure you want to delete this request?")) return;
 
     try {
-      const res = await fetch(`http://localhost:4000/api/service/delete/${id}`, {
+      const res = await fetch(`https://galhotrservice.com/api/service/delete/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

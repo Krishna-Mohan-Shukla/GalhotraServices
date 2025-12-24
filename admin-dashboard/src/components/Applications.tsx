@@ -16,7 +16,7 @@ interface Props {
 }
 
 export default function Applications({ token }: Props) {
-  const API = "http://localhost:4000/api/apply";
+  const API = "https://galhotrservice.com/api/apply";
 
   const [apps, setApps] = useState<Application[]>([]);
   const [editingStatusId, setEditingStatusId] = useState<string | null>(null);

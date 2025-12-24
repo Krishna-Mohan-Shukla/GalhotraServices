@@ -13,7 +13,7 @@ interface ContactsProps {
 
 export default function Contacts({ token }: ContactsProps) {
   const [contacts, setContacts] = useState<Contact[]>([]);
-  const API_BASE = "http://localhost:4000";
+  const API_BASE = "https://galhotrservice.com";
 
   const fetchContacts = async () => {
     const res = await fetch(`${API_BASE}/api/contact/get`);
