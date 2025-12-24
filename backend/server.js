@@ -28,6 +28,11 @@ const app = express();
 // }));
 
 
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
 const allowedOrigins = [
   "http://localhost:3000",
   "http://127.0.0.1:3003",
@@ -42,17 +47,13 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      return callback(new Error("CORS not allowed: " + origin));
-    }
+  origin: (origin, cb) => {
+    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+    return cb(new Error("CORS Not Allowed: " + origin));
   },
   credentials: true,
-  methods: ["GET", "POST", "PATCH", "DELETE", "PUT", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  allowedHeaders: ["Content-Type", "Authorization"],
+  methods: ["GET", "POST", "PATCH", "DELETE", "PUT", "OPTIONS"]
 }));
 
 // ❌ REMOVE — NO need for .options wildcard
@@ -64,7 +65,7 @@ app.use(cors({
 
 
 
-app.use(express.json());
+// app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
 app.use("/api/jobs", jobRoutes);
