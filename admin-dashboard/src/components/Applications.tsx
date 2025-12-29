@@ -104,6 +104,7 @@ export default function Applications({ token }: Props) {
           </div>
         )}
 
+
         {apps.map((app) => (
           <div
             key={app._id}
@@ -119,10 +120,20 @@ export default function Applications({ token }: Props) {
               </div>
 
               <span
-                className={`px-4 py-1.5 text-xs font-medium border rounded-full whitespace-nowrap ${
-                  statusStyles[app.status] || "bg-gray-100 text-gray-700"
-                }`}
+                className={`px-4 py-1.5 text-xs font-medium border rounded-full whitespace-nowrap ${statusStyles[app.status] || "bg-gray-100 text-gray-700"
+                  }`}
               >
+                {app.resume && (
+                  <a
+                    href={`https://galhotrservice.com/uploads/resumes/${app.resume}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block mt-4 text-blue-600 font-medium underline"
+                  >
+                    📄 View Resume
+                  </a>
+                )}
+
                 {app.status}
               </span>
             </div>

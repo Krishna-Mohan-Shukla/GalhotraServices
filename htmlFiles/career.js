@@ -33,7 +33,7 @@ function renderVacancies(list) {
     card.innerHTML = `
       <div class="flex items-center justify-between mb-4">
         <h3 class="text-xl font-bold">${job.title}</h3>
-        <span class="text-sm text-blue-200">Posted: ${job.posted || "-"}</span>
+        <span class="text-sm text-blue-200">Apply-Before: ${job.posted || "-"}</span>
       </div>
       <p class="text-blue-200 mb-2"><strong>Location:</strong> ${job.location}</p>
       <p class="text-blue-100 mb-4">${job.description || ""}</p>

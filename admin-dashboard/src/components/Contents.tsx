@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 
 interface Content {
@@ -76,44 +75,44 @@ export default function DailyContentAdmin({ token }: DailyContentAdminProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white p-8">
+      <div className="max-w-5xl mx-auto">
         {/* HEADER */}
-        <div className="mb-8 flex justify-between items-center">
-          <h2 className="text-3xl font-bold text-gray-800">
+        <div className="mb-10 flex justify-between items-center">
+          <h2 className="text-3xl font-extrabold text-indigo-800">
             Daily Content Manager
           </h2>
-          <span className="text-sm text-gray-500">
+          <span className="text-gray-500 font-medium">
             Total: {contents.length}
           </span>
         </div>
 
         {/* FORM */}
-        <div className="bg-white rounded-2xl shadow p-6 mb-10">
-          <h3 className="text-xl font-semibold mb-4 text-gray-700">
+        <div className="bg-indigo-50 rounded-3xl shadow-xl p-8 mb-12">
+          <h3 className="text-2xl font-semibold mb-6 text-indigo-700">
             {editingId ? "Edit Content" : "Add New Content"}
           </h3>
 
-          <div className="grid gap-4">
+          <div className="grid gap-5">
             <input
               placeholder="Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-indigo-200 rounded-xl p-4 w-full text-indigo-900 placeholder-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             />
 
             <textarea
               placeholder="Content text..."
               value={text}
               onChange={(e) => setText(e.target.value)}
-              rows={4}
-              className="border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              rows={5}
+              className="border border-indigo-200 rounded-xl p-4 w-full text-indigo-900 placeholder-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             />
 
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               <button
                 onClick={handleSubmit}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-xl font-semibold shadow-md transition"
               >
                 {editingId ? "Update Content" : "Add Content"}
               </button>
@@ -121,7 +120,7 @@ export default function DailyContentAdmin({ token }: DailyContentAdminProps) {
               {editingId && (
                 <button
                   onClick={cancelEdit}
-                  className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition"
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded-xl font-semibold transition"
                 >
                   Cancel
                 </button>
@@ -132,7 +131,7 @@ export default function DailyContentAdmin({ token }: DailyContentAdminProps) {
 
         {/* CONTENT LIST */}
         {contents.length === 0 && (
-          <div className="bg-white p-10 rounded-xl text-center text-gray-500 shadow">
+          <div className="bg-white p-12 rounded-2xl text-center text-gray-400 shadow-lg">
             No daily content found
           </div>
         )}
@@ -141,30 +140,30 @@ export default function DailyContentAdmin({ token }: DailyContentAdminProps) {
           {contents.map((c) => (
             <div
               key={c._id}
-              className="bg-white border rounded-2xl p-6 shadow-sm hover:shadow-lg transition"
+              className="bg-white border border-indigo-100 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition"
             >
-              <div className="flex justify-between items-start mb-3">
-                <h4 className="text-lg font-semibold text-gray-800">
+              <div className="flex justify-between items-start mb-4">
+                <h4 className="text-xl font-bold text-indigo-900">
                   {c.title}
                 </h4>
 
-                <div className="flex gap-2">
+                <div className="flex gap-3">
                   <button
                     onClick={() => handleEdit(c)}
-                    className="bg-green-600 hover:bg-green-700 text-white px-4 py-1.5 rounded-lg text-sm"
+                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl text-sm font-medium transition"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDelete(c._id)}
-                    className="bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-lg text-sm"
+                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-sm font-medium transition"
                   >
                     Delete
                   </button>
                 </div>
               </div>
 
-              <p className="bg-gray-50 border rounded-xl p-4 text-gray-700 whitespace-pre-line text-sm">
+              <p className="bg-indigo-50 border border-indigo-100 rounded-2xl p-4 text-indigo-700 whitespace-pre-line text-sm">
                 {c.text}
               </p>
             </div>
