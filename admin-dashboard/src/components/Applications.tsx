@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 interface Application {
@@ -6,10 +5,24 @@ interface Application {
   name: string;
   email: string;
   phone: string;
-  jobTitle: string;
-  resume: string;
-  originalName: string;
+  department: string;
+  jobTitle?: string;
+  resume?: string;
+  originalName?: string;
   status: string;
+  // Department-specific fields
+  it_skill?: string;
+  it_experience?: string;
+  hr_speciality?: string;
+  hr_tools?: string;
+  fin_role?: string;
+  fin_exp?: string;
+  mkt_skill?: string;
+  mkt_platform?: string;
+  op_skill?: string;
+  op_exp?: string;
+  train_field?: string;
+  train_exp?: string;
 }
 
 interface Props {
@@ -49,10 +62,11 @@ export default function Applications({ token }: Props) {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
-      .then((data) =>
-        setApps(Array.isArray(data) ? data : data.applications || [])
-      );
-  }, []);
+      .then((data) => {
+        console.log("Fetched applications:", data);
+        setApps(Array.isArray(data) ? data : data.applications || []);
+      });
+  }, [token]);
 
   const updateStatus = async (id: string) => {
     await fetch(`${API}/status/${id}`, {
@@ -105,38 +119,39 @@ export default function Applications({ token }: Props) {
           </div>
         )}
 
-
         {apps.map((app) => (
           <div
             key={app._id}
             className="bg-white rounded-2xl p-6 mb-6 border shadow-sm hover:shadow-lg transition-all duration-300"
           >
             {/* HEADER */}
-            <div className="flex justify-between items-start gap-4 mb-4">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-4">
               <div>
-                <h3 className="text-xl font-semibold text-gray-800">
-                  {app.name}
-                </h3>
-                <p className="text-sm text-gray-500">{app.jobTitle}</p>
+                <h3 className="text-xl font-semibold text-gray-800">{app.name}</h3>
+                {app.jobTitle && (
+                  <p className="text-sm text-gray-500">{app.jobTitle}</p>
+                )}
               </div>
 
-              <span
-                className={`px-4 py-1.5 text-xs font-medium border rounded-full whitespace-nowrap ${statusStyles[app.status] || "bg-gray-100 text-gray-700"
-                  }`}
-              >
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                 {app.resume && (
                   <a
                     href={`https://galhotrservice.com/uploads/resumes/${app.resume}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block mt-4 text-blue-600 font-medium underline"
+                    className="text-blue-600 font-medium underline hover:text-blue-800 transition"
                   >
                     📄 View Resume
                   </a>
                 )}
-
-                {app.status}
-              </span>
+                <span
+                  className={`px-4 py-1.5 text-xs font-medium border rounded-full whitespace-nowrap ${
+                    statusStyles[app.status] || "bg-gray-100 text-gray-700"
+                  }`}
+                >
+                  {app.status}
+                </span>
+              </div>
             </div>
 
             {/* DETAILS */}
@@ -145,11 +160,84 @@ export default function Applications({ token }: Props) {
                 <p className="text-gray-500">Email</p>
                 <p className="font-medium text-gray-800">{app.email}</p>
               </div>
-
               <div>
                 <p className="text-gray-500">Phone</p>
                 <p className="font-medium text-gray-800">{app.phone}</p>
               </div>
+
+              {/* Dynamic department fields */}
+              {app.department === "it" && (
+                <>
+                  <div>
+                    <p className="text-gray-500">IT Skills</p>
+                    <p className="font-medium text-gray-800">{app.it_skill}</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500">Experience (Years)</p>
+                    <p className="font-medium text-gray-800">{app.it_experience}</p>
+                  </div>
+                </>
+              )}
+              {app.department === "marketing" && (
+                <>
+                  <div>
+                    <p className="text-gray-500">Marketing Skills</p>
+                    <p className="font-medium text-gray-800">{app.mkt_skill}</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500">Platforms</p>
+                    <p className="font-medium text-gray-800">{app.mkt_platform}</p>
+                  </div>
+                </>
+              )}
+              {app.department === "hr" && (
+                <>
+                  <div>
+                    <p className="text-gray-500">HR Speciality</p>
+                    <p className="font-medium text-gray-800">{app.hr_speciality}</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500">HR Tools</p>
+                    <p className="font-medium text-gray-800">{app.hr_tools}</p>
+                  </div>
+                </>
+              )}
+              {app.department === "finance" && (
+                <>
+                  <div>
+                    <p className="text-gray-500">Finance Role</p>
+                    <p className="font-medium text-gray-800">{app.fin_role}</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500">Experience (Years)</p>
+                    <p className="font-medium text-gray-800">{app.fin_exp}</p>
+                  </div>
+                </>
+              )}
+              {app.department === "operations" && (
+                <>
+                  <div>
+                    <p className="text-gray-500">Operations Skills</p>
+                    <p className="font-medium text-gray-800">{app.op_skill}</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500">Experience</p>
+                    <p className="font-medium text-gray-800">{app.op_exp}</p>
+                  </div>
+                </>
+              )}
+              {app.department === "training" && (
+                <>
+                  <div>
+                    <p className="text-gray-500">Training Field</p>
+                    <p className="font-medium text-gray-800">{app.train_field}</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500">Experience</p>
+                    <p className="font-medium text-gray-800">{app.train_exp}</p>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* STATUS ACTION */}
@@ -166,7 +254,6 @@ export default function Applications({ token }: Props) {
                       <option key={s}>{s}</option>
                     ))}
                   </select>
-
                   <button
                     onClick={() => updateStatus(app._id)}
                     className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg text-sm font-medium transition"
@@ -187,12 +274,11 @@ export default function Applications({ token }: Props) {
               )}
             </div>
 
-            {/* FORWARD */}
-            <div className="bg-gray-50 rounded-xl p-4 border">
+            {/* FORWARD TO COMPANY */}
+            <div className="bg-gray-50 rounded-xl p-4 border mb-4">
               <p className="text-sm font-medium text-gray-700 mb-2">
                 Forward to Company
               </p>
-
               <div className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="email"
@@ -207,9 +293,7 @@ export default function Applications({ token }: Props) {
                   }
                 />
                 <button
-                  onClick={() =>
-                    sendToCompany(app._id, companyEmails[app._id])
-                  }
+                  onClick={() => sendToCompany(app._id, companyEmails[app._id])}
                   className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition"
                 >
                   Send
@@ -218,7 +302,7 @@ export default function Applications({ token }: Props) {
             </div>
 
             {/* DELETE */}
-            <div className="mt-4 text-right">
+            <div className="text-right">
               <button
                 onClick={() => deleteApplication(app._id)}
                 className="text-sm text-red-600 hover:text-red-700 font-medium"
