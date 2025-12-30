@@ -119,27 +119,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ======================= FEEDBACK FORM ==========================
   const feedbackForm = document.getElementById("feedback-form");
+  const feedbackContainer = document.getElementById("feedback-container");
+  const stars = document.querySelectorAll(".rating-stars .star");
+  const ratingInput = document.getElementById("rating");
 
+  // ⭐ Star rating click selection
+  stars.forEach(star => {
+    star.addEventListener("click", () => {
+      ratingInput.value = star.dataset.rate;
+      stars.forEach(s => s.classList.remove("text-yellow-400"));
+      for (let i = 0; i < star.dataset.rate; i++) {
+        stars[i].classList.add("text-yellow-400");
+      }
+    });
+  });
+
+  // 🧾 Load Feedback on Page Load
+  async function loadFeedback() {
+    const res = await fetch("https://galhotrservice.com/api/feedback/get");
+    const data = await res.json();
+    renderFeedback(data);
+  }
+
+  // 🎭 Display Cards
+  function renderFeedback(list) {
+    feedbackContainer.innerHTML = "";
+    if (!list.length) {
+      feedbackContainer.innerHTML = `<p class="text-gray-500 text-center col-span-full">No feedback yet ✍</p>`;
+      return;
+    }
+
+    list.reverse().forEach(item => {
+      feedbackContainer.innerHTML += `
+        <div class="bg-white border border-blue-100 shadow rounded-xl p-4 hover:-translate-y-1 transition">
+          <div class="flex items-center justify-between">
+            <span class="text-yellow-400 text-lg">${"★".repeat(item.rating || 5)}</span>
+          </div>
+          <p class="text-blue-800 mt-3">${item.feedback}</p>
+        </div>`;
+    });
+  }
+
+  // 🚀 Submit Feedback
   if (feedbackForm) {
     feedbackForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const formData = {
-        rating: feedbackForm.rating.value,
+        rating: ratingInput.value,
         feedback: feedbackForm.feedback.value,
       };
 
-      const res = await fetch("https://galhotrservice.com/api/feedback/post", {
+      await fetch("https://galhotrservice.com/api/feedback/post", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
       });
 
-      const data = await res.json();
-      alert(data.message || "Feedback Submitted!");
       feedbackForm.reset();
+      ratingInput.value = "";
+      stars.forEach(s => s.classList.remove("text-yellow-400"));
+      loadFeedback();
+      alert("🎉 Feedback submitted successfully!");
     });
   }
+
+  loadFeedback();
 
   // ======================= SERVICE FORM ==========================
   const serviceForm = document.getElementById("service-form");
@@ -211,51 +256,56 @@ document.addEventListener("DOMContentLoaded", () => {
     mainForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const form = new FormData(mainForm);
-      form.append("jobRole", document.getElementById("department").value);
+      const formData = new FormData(mainForm);
+      formData.append("department", document.getElementById("department").value);
+
+      const payload = Object.fromEntries(formData);
 
       try {
         const res = await fetch("https://galhotrservice.com/api/application/apply", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(Object.fromEntries(form)),
+          body: JSON.stringify(payload)
         });
 
         const result = await res.json();
 
         if (result.success) {
           alert("Application submitted successfully!");
+          mainForm.reset();
         } else {
           alert("Failed: " + result.error);
         }
       } catch (err) {
+        console.error(err);
         alert("Something went wrong!");
       }
     });
   }
 
+
 });
 
 
-  const topicButtons = document.querySelectorAll('[data-topic]');
-  const topicContents = document.querySelectorAll('.topic-content');
+const topicButtons = document.querySelectorAll('[data-topic]');
+const topicContents = document.querySelectorAll('.topic-content');
 
-  topicButtons.forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
+topicButtons.forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
 
-      // hide all
-      topicContents.forEach(content => {
-        content.classList.add('hidden');
-      });
-
-      // show selected
-      const targetId = btn.getAttribute('data-topic');
-      const targetEl = document.getElementById(targetId);
-      if (targetEl) {
-        targetEl.classList.remove('hidden');
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    // hide all
+    topicContents.forEach(content => {
+      content.classList.add('hidden');
     });
+
+    // show selected
+    const targetId = btn.getAttribute('data-topic');
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      targetEl.classList.remove('hidden');
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
+});
 

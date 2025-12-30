@@ -51,13 +51,18 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-  origin: (origin, cb) => {
-    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
-    return cb(new Error("CORS Not Allowed: " + origin));
+  origin: function(origin, callback){
+    // allow requests with no origin (like Postman)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      let msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
   },
   credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"],
-  methods: ["GET", "POST", "PATCH", "DELETE", "PUT", "OPTIONS"]
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "Cache-Control", "X-Requested-With"]
 }));
 
 // ❌ REMOVE — NO need for .options wildcard
