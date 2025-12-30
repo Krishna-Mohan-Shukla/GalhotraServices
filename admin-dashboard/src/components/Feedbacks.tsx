@@ -5,124 +5,101 @@ interface Feedback {
   feedback: string;
 }
 
-interface FeedbacksProps {
-  token: string;
-}
-
-export default function Feedbacks({ token }: FeedbacksProps) {
+export default function Feedbacks({ token }: { token: string }) {
   const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
-  const [f, setF] = useState("");
+  const [input, setInput] = useState("");
 
   const API_BASE = "https://galhotrservice.com";
 
-  // ✅ fetchFeedbacks wrapped in useCallback to fix ESLint warning
   const fetchFeedbacks = useCallback(async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/feedback/get`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await fetch(`${API_BASE}/api/feedback/get`);
       const data = await res.json();
-      setFeedbacks(data);
+      if (Array.isArray(data)) setFeedbacks(data);
     } catch (err) {
-      console.error("Error fetching feedbacks:", err);
+      console.error("Error:", err);
     }
-  }, [token]);
+  }, []);
 
-  // ✅ useEffect calls fetchFeedbacks safely
   useEffect(() => {
     fetchFeedbacks();
   }, [fetchFeedbacks]);
 
-  // Add new feedback
   const addFeedback = async () => {
-    if (!f.trim()) return;
-
+    if (!input.trim()) return;
     try {
-      const res = await fetch(`${API_BASE}/api/feedback`, {
+      const res = await fetch(`${API_BASE}/api/feedback/post`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ feedback: f }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ feedback: input }),
       });
-
-      if (res.ok) {
-        setF("");
+      const data = await res.json();
+      if (data && data._id) {
+        setInput("");
         fetchFeedbacks();
       }
     } catch (err) {
-      console.error("Error adding feedback:", err);
+      console.error(err);
     }
   };
 
-  // Delete feedback
   const deleteFeedback = async (id: string) => {
     try {
-      await fetch(`${API_BASE}/api/feedback/${id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await fetch(`${API_BASE}/api/feedback/${id}`, { method: "DELETE" });
       fetchFeedbacks();
     } catch (err) {
-      console.error("Error deleting feedback:", err);
+      console.error(err);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-4xl mx-auto">
-        {/* HEADER */}
+    <div className="min-h-screen bg-gradient-to-br from-[#e8ecff] to-[#ffe9f5] p-6 flex justify-center">
+      <div className="max-w-3xl w-full bg-white shadow-2xl p-8 rounded-3xl">
+
+        <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">
+          📢 User Feedbacks
+        </h1>
+
+        {/* ADD INPUT */}
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-800">Feedbacks</h2>
-          <p className="text-gray-500 mt-1">Manage user feedback & reviews</p>
-        </div>
-
-        {/* ADD FEEDBACK */}
-        <div className="bg-white p-5 rounded-2xl shadow mb-8">
-          <label className="block text-sm font-medium text-gray-600 mb-2">
-            Add New Feedback
+          <label className="font-medium text-gray-700 mb-1 block text-sm">
+            Add Feedback Message
           </label>
-
           <div className="flex gap-3">
             <input
-              placeholder="Write feedback..."
-              value={f}
-              onChange={(e) => setF(e.target.value)}
-              className="flex-1 border rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Write something..."
+              className="flex-1 px-4 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none text-gray-800"
             />
             <button
               onClick={addFeedback}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl transition"
+              className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl transition font-semibold"
             >
               Add
             </button>
           </div>
         </div>
 
-        {/* FEEDBACK LIST */}
         <div className="space-y-4">
           {feedbacks.length === 0 && (
-            <div className="bg-white p-8 text-center text-gray-500 rounded-xl shadow">
-              No feedbacks found
-            </div>
+            <p className="p-8 bg-white rounded-xl shadow text-center text-gray-600">
+              No feedbacks found 🥲
+            </p>
           )}
 
           {feedbacks.map((item) => (
             <div
               key={item._id}
-              className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition"
+              className="bg-white p-5 rounded-xl shadow hover:shadow-lg transition flex justify-between items-center"
             >
-              <div className="flex justify-between items-start gap-4">
-                <p className="text-gray-700">{item.feedback}</p>
-
-                <button
-                  onClick={() => deleteFeedback(item._id)}
-                  className="text-sm bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-lg transition"
-                >
-                  Delete
-                </button>
-              </div>
+              <p className="text-gray-700">{item.feedback}</p>
+              <button
+                onClick={() => deleteFeedback(item._id)}
+                className="text-sm px-4 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg"
+              >
+                Delete
+              </button>
             </div>
           ))}
         </div>

@@ -5,25 +5,25 @@ export default function Applications({ token }) {
   const API = "https://galhotrservice.com/api/application";
   const [applications, setApplications] = useState([]);
 
-  // ✅ fetchApps wrapped in useCallback to fix ESLint warning
   const fetchApps = useCallback(async () => {
     try {
       const res = await fetch(`${API}/get`, {
         headers: { Authorization: `Bearer ${token}` },
+        cache: "no-store",
       });
+
       const data = await res.json();
-      if (data.success) setApplications(data.data);
+      setApplications(Array.isArray(data.data) ? data.data : []);
     } catch (err) {
       console.error("Error fetching applications:", err);
+      setApplications([]);
     }
   }, [token, API]);
 
-  // ✅ useEffect calls fetchApps safely
   useEffect(() => {
     fetchApps();
   }, [fetchApps]);
 
-  // Delete app
   const deleteApp = async (id) => {
     try {
       await fetch(`${API}/apply/${id}`, {
@@ -37,67 +37,89 @@ export default function Applications({ token }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0b132b] to-[#1c2541] px-6 py-10 text-white">
-      {/* HEADER */}
-      <div className="mb-12">
-        <h1 className="text-4xl font-extrabold tracking-tight">
-          New Applications
-        </h1>
-        <p className="text-gray-300 mt-2 text-lg">
-          Recently submitted candidate profiles
-        </p>
-      </div>
+    <div className="min-h-screen bg-[#0b132b] px-8 py-12 text-white">
+      <h1 className="text-5xl font-extrabold mb-10">📨 Job Applications</h1>
 
-      {/* GRID */}
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {applications.map((a) => (
           <div
             key={a._id}
-            className="relative bg-white/10 backdrop-blur-xl border border-white/10 
-                       rounded-2xl p-6 shadow-lg hover:shadow-2xl transition 
-                       hover:-translate-y-1"
+            className="bg-[#1a2238] p-7 rounded-2xl shadow-xl border border-white/10 
+                       hover:scale-[1.02] transition-all duration-300"
           >
-            {/* TOP */}
-            <div className="flex justify-between items-start">
-              <div>
-                <h3 className="text-2xl font-semibold">{a.name}</h3>
-                <div className="mt-2 space-y-1 text-gray-300 text-sm">
-                  <p className="flex items-center gap-2">
-                    <FiMail /> {a.email}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <FiPhone /> {a.phone}
-                  </p>
-                </div>
-              </div>
+            {/* Name & Contact */}
+            <h2 className="text-3xl font-bold">{a.name}</h2>
+            <p className="text-gray-300 mt-2 flex items-center gap-2 text-sm">
+              <FiMail /> {a.email}
+            </p>
+            <p className="text-gray-300 flex items-center gap-2 mt-1 text-sm">
+              <FiPhone /> {a.phone}
+            </p>
 
-              <span className="px-3 py-1 rounded-lg text-sm font-medium 
-                               bg-blue-500/20 border border-blue-400/30 
-                               text-blue-300 capitalize">
-                {a.department || "General"}
-              </span>
+            {/* Department Tag */}
+            <p className="mt-4 inline-block px-3 py-1 text-sm bg-blue-600 rounded-full capitalize">
+              {a.department}
+            </p>
+
+            {/* Dynamic Fields */}
+            <div className="mt-5 space-y-1 text-gray-300 text-sm bg-black/20 rounded-lg p-4">
+              {a.department === "it" && (
+                <>
+                  <p>🧑‍💻 Skill: <span className="text-white">{a.it_skill}</span></p>
+                  <p>📅 Exp: <span className="text-white">{a.it_experience} yrs</span></p>
+                </>
+              )}
+
+              {a.department === "hr" && (
+                <>
+                  <p>🧾 Speciality: <span className="text-white">{a.hr_speciality}</span></p>
+                  <p>🛠 Tools: <span className="text-white">{a.hr_tools}</span></p>
+                </>
+              )}
+
+              {a.department === "finance" && (
+                <>
+                  <p>💼 Role: <span className="text-white">{a.fin_role}</span></p>
+                  <p>📅 Exp: <span className="text-white">{a.fin_exp} yrs</span></p>
+                </>
+              )}
+
+              {a.department === "marketing" && (
+                <>
+                  <p>📢 Skills: <span className="text-white">{a.mkt_skill}</span></p>
+                  <p>🌐 Platforms: <span className="text-white">{a.mkt_platform}</span></p>
+                </>
+              )}
+
+              {a.department === "operations" && (
+                <>
+                  <p>⚙️ Skills: <span className="text-white">{a.op_skill}</span></p>
+                  <p>📅 Exp: <span className="text-white">{a.op_exp} yrs</span></p>
+                </>
+              )}
+
+              {a.department === "training" && (
+                <>
+                  <p>📚 Field: <span className="text-white">{a.train_field}</span></p>
+                  <p>📅 Exp: <span className="text-white">{a.train_exp} yrs</span></p>
+                </>
+              )}
             </div>
 
-            {/* ACTIONS */}
-            <div className="mt-6 flex justify-end">
-              <button
-                onClick={() => deleteApp(a._id)}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl
-                           bg-red-500/20 border border-red-400/30 text-red-300
-                           hover:bg-red-600 hover:text-white transition"
-              >
-                <FiTrash2 />
-                Delete
-              </button>
-            </div>
+            {/* Delete Button */}
+            <button
+              onClick={() => deleteApp(a._id)}
+              className="mt-6 w-full bg-red-600/80 hover:bg-red-600 transition font-semibold px-4 py-2 rounded-xl"
+            >
+              🗑 Delete Application
+            </button>
           </div>
         ))}
       </div>
 
-      {/* EMPTY STATE */}
       {applications.length === 0 && (
-        <div className="mt-24 text-center text-gray-400 text-xl">
-          No applications found 🚫
+        <div className="mt-20 text-center text-gray-400 text-xl">
+          🚫 No applications available
         </div>
       )}
     </div>

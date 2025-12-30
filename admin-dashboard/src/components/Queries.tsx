@@ -88,7 +88,7 @@ export default function Queries({ token }: QueriesProps) {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Add a new query..."
-          className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-800"
         />
         <button
           onClick={addQuery}
