@@ -42,12 +42,22 @@ const allowedOrigins = [
   // "http://127.0.0.1:3003",
 
   // 🔥 LIVE FRONTEND (Public website)
-  "https://galhotragroup.com",
-  "http://galhotragroup.com",
+  // "https://galhotragroup.com",
+  // "http://galhotragroup.com",
 
-  // 🔥 LIVE ADMIN PANEL
+  // // 🔥 LIVE ADMIN PANEL
+  // "https://galhotrservice.com",
+  // "http://galhotrservice.com"
+
+   "https://galhotragroup.com",
+  "http://galhotragroup.com",
+  "https://www.galhotragroup.com",
+  "http://www.galhotragroup.com",
+
   "https://galhotrservice.com",
-  "http://galhotrservice.com"
+  "http://galhotrservice.com",
+  "https://www.galhotrservice.com",
+  "http://www.galhotrservice.com"
 ];
 
 app.use(cors({
